@@ -6,7 +6,7 @@ const FormField = () => {
   const [inputField3, setInputField3] = useState('');
 
   const handleInputs = ()=>{
-
+    setInputField('');setInputField2('');setInputField3('')
   }
 
   return (
