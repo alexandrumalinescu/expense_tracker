@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TabelData from "./TabelData";
 
 const FormField = () => {
   const [value, setInputField] = useState('');
@@ -6,22 +7,18 @@ const FormField = () => {
   const [value3, setInputField3] = useState('');
  
 
-  const [printData,setPrintdata] = useState([]);
+  const [printData,setPrintdata] = useState('');
 
   const handleInputs = ()=>{
     const printData = [value,value2,value3];
     setPrintdata(printData);
-    const divprint=()=>{ 
-      printData.map(item=><div>{item}</div>)
-      
-    }
-    setInputField('');setInputField2('');setInputField3('');
+   
 }
 
   const handleSubmit = (e)=>{
       e.preventDefault();
       handleInputs(printData);
-      console.log(printData)
+      setInputField('');setInputField2('');setInputField3('');
   }
 
   return (
@@ -56,7 +53,7 @@ const FormField = () => {
         </div>
       </form>
       <div>
-         <div>{printData[0]}</div>
+         <TabelData print={printData}/>
       </div>
     </div>
   );
