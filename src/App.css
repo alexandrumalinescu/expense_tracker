@@ -89,6 +89,7 @@ button:hover{
   box-shadow: 0 3px 5px forestgreen;
   outline: none;
   margin: 10px;
+  cursor: pointer;
 }
 
 
