@@ -1,25 +1,23 @@
 import React, { useState } from "react";
-import TabelData from "./TabelData";
 
 const FormField = () => {
-  const [value, setInputField] = useState('');
-  const [value2, setInputField2] = useState('');
-  const [value3, setInputField3] = useState('');
- 
-
-  const [printData,setPrintdata] = useState('');
-
-  const handleInputs = ()=>{
-    const printData = [value,value2,value3];
-    setPrintdata(printData);
-   
-}
+  const [inputList, setInputList] = useState('');
+  const [inputList2,setInputList2] = useState('');
+  const [inputList3, setInputList3] = useState('');
 
   const handleSubmit = (e)=>{
       e.preventDefault();
-      handleInputs(printData);
-      setInputField('');setInputField2('');setInputField3('');
+      const newValue = {inputList,inputList2,inputList3}
+      handleInputs(newValue); 
+      setInputList([]);setInputList2([]);setInputList3([])
   }
+
+  const [printData,setPrintdata] = useState([]);
+
+  const handleInputs = (item)=>{
+   const formList=[...printData,item];
+    setPrintdata(formList);
+}
 
   return (
     <div >
@@ -31,29 +29,37 @@ const FormField = () => {
             <input className='nameinput'
                 type='text' 
                 placeholder='Where was the expense made?'
-                value={value}
-                onChange={e=>{setInputField(e.target.value)}}/>
+                value={inputList}
+                onChange={e=>setInputList(e.target.value)}/>
             </div>
             <div className='dateamount'>
                 <div>Date:</div>
-                    <input className='inputDate' type='date'
-                    value={value2}
-                    onChange={e=>{setInputField2(e.target.value)}}/>
+                    <input className='inputDate'
+                    type='date'
+                    value={inputList2}
+                    onChange={e=>setInputList2(e.target.value)}/>
                 <div>Amount:</div>
                     <input className='inputnumber'
                     placeholder='Enter amount'
                     type='number'
-                    value={value3}
-                    onChange={e=>{setInputField3(e.target.value)}}/>
+                    value={inputList3}
+                    onChange={e=>setInputList3(e.target.value)}/>
             </div>
         </div>
         <button
-         onClick={handleInputs}
          type='submit'>Add Expense</button>
         </div>
       </form>
       <div>
-         <TabelData print={printData}/>
+       {console.log(printData)}
+       {
+          printData.map((item,key)=><div className='tabel' key={`${key}`}>
+            <div className='design'>{item.inputList}</div>
+            <div className='design'>{item.inputList2}</div>
+            <div className='design'>{item.inputList3}</div>
+            <button className='delete'>Delete</button>
+          </div>)
+        }
       </div>
     </div>
   );

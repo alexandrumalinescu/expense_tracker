@@ -1,0 +1,22 @@
+.tabelData ul li {
+    align-items: center;
+}
+
+li {
+    display: inline-block;
+    margin:5px 10px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+ul button {
+   background-color:  rgb(23, 214, 49);
+   color: white;
+   border: none;
+   padding: 5px;
+   border-radius: 5px;
+   box-shadow: 0 3px 5px forestgreen;
+   outline: none;
+   margin: 10px;
+}

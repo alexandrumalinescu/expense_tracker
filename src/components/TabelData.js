@@ -1,19 +1,21 @@
 import React from 'react'
-
+import '../components/TabelCss.js.css'
 
 const TabelData =(props)=> {
 
-    
-
     return (
+ 
         <div className='tabelData'>
-            <div>{props.print[0]}</div>
-            <div>{props.print[1]}</div>
-            <div>{props.print[2]}</div>
-            <button>Delete</button>
-        </div>
-        
+            <ul>
+                {console.log(props.printData)}
+                
+                <button className='btn'>Delete</button>
+            </ul> 
+        </div>  
     )
 }
 
 export default TabelData;
+//{
+   /// printData.map((item,key)=><div key={`${key}`}>{item.inputList}</div>)
+  //}
