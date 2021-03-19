@@ -19,6 +19,11 @@ const FormField = () => {
     setPrintdata(formList);
 }
 
+const handleDelete = (i)=>{
+  const newList = printData.filter((item)=>item !== i);
+  setPrintdata(newList);
+}
+
   return (
     <div >
       <form className='form'
@@ -57,7 +62,9 @@ const FormField = () => {
             <div className='design'>{item.inputList}</div>
             <div className='design'>{item.inputList2}</div>
             <div className='design'>{item.inputList3}</div>
-            <button className='delete'>Delete</button>
+            <button 
+            onClick={()=>handleDelete(item)}
+            className='delete'>Delete</button>
           </div>)
         }
       </div>
