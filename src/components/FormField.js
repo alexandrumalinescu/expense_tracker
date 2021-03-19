@@ -32,9 +32,8 @@ const onSearchChance = (e)=>{
 }
 
 const handleSearch = (item)=>{
-  
   console.log(item)
-  //return <div>{dataSearch.inputList}</div>
+   
 }
 
   return (
