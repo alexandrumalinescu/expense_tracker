@@ -32,8 +32,9 @@ const onSearchChance = (e)=>{
 }
 
 const handleSearch = (item)=>{
-  const dataSearch = printData.filter(i=>i.inputList.toLowerCase()===item.toLowerCase())
-  console.log(dataSearch)
+  
+  console.log(item)
+  //return <div>{dataSearch.inputList}</div>
 }
 
   return (
