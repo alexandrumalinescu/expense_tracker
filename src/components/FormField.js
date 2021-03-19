@@ -17,6 +17,7 @@ const FormField = () => {
   const handleInputs = (item)=>{
    const formList=[...printData,item];
     setPrintdata(formList);
+   
 }
 
 const handleDelete = (i)=>{
@@ -24,8 +25,26 @@ const handleDelete = (i)=>{
   setPrintdata(newList);
 }
 
+const [searchTerm,setSearchTerm]=useState('')
+
+const onSearchChance = (e)=>{
+  setSearchTerm(e.target.value);
+}
+
+const handleSearch = (item)=>{
+  const dataSearch = printData.filter(i=>i.inputList.toLowerCase()===item.toLowerCase())
+  console.log(dataSearch)
+}
+
   return (
     <div >
+      <input 
+      type='input' 
+      placeholder='Search after expense name'
+      onChange={onSearchChance}/>
+      <div>
+        {handleSearch(searchTerm)}
+      </div>
       <form className='form'
        onSubmit={handleSubmit}>
         <div>
@@ -56,7 +75,6 @@ const handleDelete = (i)=>{
         </div>
       </form>
       <div>
-       {console.log(printData)}
        {
           printData.map((item,key)=><div className='tabel' key={`${key}`}>
             <div className='design'>{item.inputList}</div>
