@@ -14,15 +14,15 @@ const FormField = () => {
 
   const [printData,setPrintdata] = useState([]);
 
-  const saveLocal = (printData) => {
-    localStorage.setItem("data", JSON.stringify(printData));
-  };
-
   const handleInputs = (item)=>{
    const formList=[...printData,item];
     setPrintdata(formList); 
     saveLocal(formList)
 }
+
+const saveLocal = (printData) => {
+  localStorage.setItem("data", JSON.stringify(printData));
+};
 
 const handleDelete = (i)=>{
   const newList = printData.filter((item)=>item !== i);
@@ -40,7 +40,7 @@ const handleSearch = (item)=>{
   
   return <div>
     {searchResult.map((i,index)=><div key={index}>
-      {`${i.inputList} ${i.inputList2}  $${i.inputList3}`}
+      {`${i.inputList} ${i.inputList2}  ${i.inputList3}`}
       <button 
             onClick={()=>handleDelete(i)}
             className='delete'>Delete</button>
