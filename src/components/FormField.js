@@ -32,14 +32,15 @@ const handleDelete = (i)=>{
 const [searchTerm,setSearchTerm]=useState('')
 
 const onSearchChance = (e)=>{
-  setSearchTerm(e.target.value);
+  setSearchTerm(e.target.value.toLowerCase());
 }
 
 const handleSearch = (item)=>{
   const searchResult = printData.filter(i=>i.inputList===item);
+  
   return <div>
-    {searchResult.map(i=><div>
-      {`${i.inputList} ${i.inputList2}  ${i.inputList3}RON`}
+    {searchResult.map((i,index)=><div key={index}>
+      {`${i.inputList} ${i.inputList2}  $${i.inputList3}`}
       <button 
             onClick={()=>handleDelete(i)}
             className='delete'>Delete</button>
