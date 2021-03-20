@@ -92,6 +92,12 @@ button:hover{
   cursor: pointer;
 }
 
+.searchResult {
+  margin: 10px;
+}
 
-
+.searchInput {
+  margin-bottom: 10px;
+  width: 200px;
+}
 

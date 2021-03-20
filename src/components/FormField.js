@@ -14,10 +14,14 @@ const FormField = () => {
 
   const [printData,setPrintdata] = useState([]);
 
+  const saveLocal = (printData) => {
+    localStorage.setItem("data", JSON.stringify(printData));
+  };
+
   const handleInputs = (item)=>{
    const formList=[...printData,item];
-    setPrintdata(formList);
-   
+    setPrintdata(formList); 
+    saveLocal(formList)
 }
 
 const handleDelete = (i)=>{
@@ -32,13 +36,22 @@ const onSearchChance = (e)=>{
 }
 
 const handleSearch = (item)=>{
-  console.log(item)
-   
+  const searchResult = printData.filter(i=>i.inputList===item);
+  return <div>
+    {searchResult.map(i=><div>
+      {`${i.inputList} ${i.inputList2}  ${i.inputList3}RON`}
+      <button 
+            onClick={()=>handleDelete(i)}
+            className='delete'>Delete</button>
+    </div>)
+    }
+    </div>
 }
 
   return (
     <div >
       <input 
+      className ='searchInput'
       type='input' 
       placeholder='Search after expense name'
       onChange={onSearchChance}/>
