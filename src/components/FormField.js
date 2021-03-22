@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useLocalStorage from './LocalStorage';
 
 const FormField = () => {
   const [inputList, setInputList] = useState('');
@@ -12,17 +13,17 @@ const FormField = () => {
       setInputList([]);setInputList2([]);setInputList3([])
   }
 
-  const [printData,setPrintdata] = useState([]);
+  const [printData,setPrintdata] = useLocalStorage('printData',[]);
 
   const handleInputs = (item)=>{
    const formList=[...printData,item];
     setPrintdata(formList); 
-    saveLocal(formList)
+    //saveLocal(formList )
 }
 
-const saveLocal = (printData) => {
-  localStorage.setItem("data", JSON.stringify(printData));
-};
+//const saveLocal = (printData) => {
+ // localStorage.setItem("data", JSON.stringify(printData));
+//};
 
 const handleDelete = (i)=>{
   const newList = printData.filter((item)=>item !== i);
