@@ -33,7 +33,7 @@ const handleDelete = (i)=>{
 const [searchTerm,setSearchTerm]=useState('')
 
 const onSearchChance = (e)=>{
-  setSearchTerm(e.target.value);
+  setSearchTerm(e.target.value );
 }
 
 const handleSearch = (item)=>{
